@@ -1,21 +1,21 @@
 class Score:
     def __init__(self):
-        self.home: int = 0
-        self.away: int = 0
+        self.player: int = 0
+        self.opponent: int = 0
 
     # to dict
     def to_dict(self):
         return {
-            'home': self.home,
-            'away': self.away
+            'player': self.player,
+            'opponent': self.opponent
         }
 
     # from dict
     @staticmethod
     def from_dict(data):
         score = Score()
-        score.home = data['home']
-        score.away = data['away']
+        score.home = data['player']
+        score.away = data['opponent']
         return score
 
 class Match:
@@ -24,10 +24,10 @@ class Match:
         self.link: str = None
         self.date: str = None
         self.time: str = None # local time
+        self.localTime: str = None
         self.playerId: str = None
-        self.gender: bool = None # 0 - ATP, 1 - WTA
-        self.homePlayerId: str = None
-        self.awayPlayerId: str = None
+        self.opponentId: str = None
+        self.gender: bool = None # 0 - Males, 1 - Females
         self.score: Score = Score()
         self.sets: list[Score] = []
         self.tournamentId: str = None
@@ -36,10 +36,9 @@ class Match:
         self.country: str = None
         self.surface: str = None
         self.duration: int = None
-
-
-        self.homePlayerOdd: float = None
-        self.awayPlayerOdd: float = None
+        self.durations: list[int] = []
+        self.playerOdd: float = None
+        self.opponentOdd: float = None
 
     # to dict
     def to_dict(self):

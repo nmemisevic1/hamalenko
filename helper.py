@@ -38,3 +38,8 @@ class Helper:
         # Print New Line on Complete
         if iteration == total:
             print()
+
+    # parse link to get player id
+    @staticmethod
+    def parsePlayerId(link: str):
+        return link.split("/")[-2]

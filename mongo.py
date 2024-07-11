@@ -7,7 +7,7 @@ class Mongo:
         self.collection = self.db[collection_name]
 
     def insert_one(self, data: dict):
-        self.collection.insert_one(data)
+        return self.collection.insert_one(data)
 
     def insert_many(self, data: list[dict]):
         self.collection.insert_many(data)
@@ -29,6 +29,9 @@ class Mongo:
 
     def delete_many(self, query: dict):
         return self.collection.delete_many(query)
+
+    def replace_one(self, query: dict, data: dict):
+        return self.collection.replace_one(query, data)
 
     def drop(self):
         self.collection.drop()

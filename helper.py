@@ -12,7 +12,7 @@ class Helper:
             cookiesBanner = driver.find_element("id", "onetrust-reject-all-handler")
             if cookiesBanner:
                 cookiesBanner.click()
-                time.sleep(2)
+                time.sleep(3)
         except:
             pass
 
